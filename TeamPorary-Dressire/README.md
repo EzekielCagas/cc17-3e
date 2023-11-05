@@ -13,3 +13,6 @@
 
 ### 02/11/2023
 - updated the layout of home screen
+
+### 05/11/2023
+- updated layout of home screen, added product highlight layout
