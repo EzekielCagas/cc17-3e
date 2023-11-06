@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundimg"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="45dp"
+        android:background="?android:attr/listDivider" />
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_icon"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#F1F1F1"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FBFBFB"
+        app:backgroundTint="#EFEDED"
+        app:rippleColor="#F4F4F4"
+        app:strokeColor="#F3F3F3" />
+
+    <Button
+        android:id="@+id/hamburger_button"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:background="@drawable/hamburger_button"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#F1F1F1"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FBFBFB"
+        app:backgroundTint="#F4F0F0"
+        app:rippleColor="#F4F4F4"
+        app:strokeColor="#F3F3F3" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="315sp"
+        android:background="?android:attr/listDivider" />
+
+    <ImageView
+        android:id="@+id/dressimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/divider"
+        android:layout_alignBottom="@+id/divider2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="2sp"
+        android:layout_marginBottom="2sp"
+        android:adjustViewBounds="false"
+        android:background="#A84E4B4B"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/mansuit2" />
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/dressimage"
+        android:layout_alignBottom="@+id/dressimage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="314dp"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="111dp"
+        android:background="@drawable/next_button"
+        app:backgroundTint="#FAFAFA" />
+
+    <Button
+        android:id="@+id/previous_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/dressimage"
+        android:layout_alignBottom="@+id/dressimage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="314dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="111dp"
+        android:background="@drawable/previous_button"
+        app:backgroundTint="#FFFFFF" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="310dp"
+        android:background="#FFFFFF"
+        android:hapticFeedbackEnabled="false" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="65dp"
+        android:background="#697793"
+        android:hapticFeedbackEnabled="false" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="329dp"
+        android:layout_marginEnd="185dp"
+        android:layout_marginBottom="367dp"
+        android:text="STATUS: Available"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_toStartOf="@+id/status"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="355dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="332dp"
+        android:text="LOCATION: Maharlika Complex"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="90dp" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_toStartOf="@+id/location"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="390dp"
+        android:layout_marginEnd="-350dp"
+        android:text="RATING: "
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/order_button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/view2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-55dp"
+        android:layout_marginEnd="12dp"
+        android:text="ORDER"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        app:backgroundTint="#8B85C1" />
+
+    <Button
+        android:id="@+id/reserve_button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/view2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="-52dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toStartOf="@+id/order_button"
+        android:text="RESERVE"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        app:backgroundTint="#8B85C1" />
+
+    <Button
+        android:id="@+id/bookmark_button"
+        android:layout_width="43dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-55dp"
+        android:layout_marginEnd="242dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="12dp"
+        android:layout_toStartOf="@+id/reserve_button"
+        android:background="@drawable/bookmarkadd_icon"
+        app:backgroundTint="#697792"
+        app:backgroundTintMode="multiply" />
+
+    <Button
+        android:id="@+id/message_button"
+        android:layout_width="43dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_marginTop="-55dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="12dp"
+        android:layout_toStartOf="@+id/bookmark_button"
+        android:background="@drawable/message_icon"
+        app:backgroundTint="#697792" />
+    "/>
+    />
+
+</RelativeLayout>
