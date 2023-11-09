@@ -11,8 +11,11 @@
 ### 10/31/2023
 - partially created home screen
 
-### 02/11/2023
+### 11/02/2023
 - updated the layout of home screen
 
-### 05/11/2023
+### 11/05/2023
 - updated layout of home screen, added product highlight layout
+
+### 11/10/23
+- updated button and intents
