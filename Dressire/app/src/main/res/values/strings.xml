@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Dressire</string>
+
+    <string name="one_step_solution">Dressire is a one step solution to your browsing problem.
+        We provide you a digitalized version when browsing your desired Gowns, Suits, and Dresses
+        in rental shops giving you a newer experience</string>
+    <string name="why_rental">With Dressire we are giving you a fresh way to browse and search
+        for the perfect gown you want to wear to the party. Digitalizing and making it easy for
+        you to browse and reserve your desired dress.
+    </string>
+    <string name="quick_turnaround_time">Dressire is making your desired dress hunt much easier
+        Just swipe / search / and reserve your desired dress is yours to borrow. Providing you
+        a quick turnaround looking for your desired dress to rent out!
+    </string>
+    <string name="product_quality_control">With Dressire partnering with multiple shops, we
+        guarantee you that you will receive a great quality of clothing for your event needs.
+    </string>
+    <string name="our_team">We in Dressire, Team Porary Co. is obliged and happy to develop this
+        for your rental needs. We want to create an easier way for you to search your desired
+        making you fresh, relevant, and unique on your party.
+    </string>
+
+</resources>
