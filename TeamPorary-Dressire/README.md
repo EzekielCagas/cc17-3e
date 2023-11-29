@@ -19,3 +19,13 @@
 
 ### 11/10/23
 - updated button and intents
+
+### 11/19/23
+-added animations on product highlight
+
+### 11/20/23
+-updated whole layout and constraints 
+
+## 11/29/23
+-updated layout and added database but facing problems
+

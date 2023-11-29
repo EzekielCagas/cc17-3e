@@ -62,10 +62,13 @@
                 android:alpha="0.7"
                 android:textStyle="bold"/>
             <EditText
+                android:id="@+id/login_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:drawableEnd="@drawable/done_icon"/>
+                android:drawableLeft="@drawable/account"
+                android:drawableTint="@color/black"
+                android:drawablePadding="8dp"/>
 
             <View
                 android:layout_width="wrap_content"
@@ -77,10 +80,14 @@
                 android:alpha="0.7"
                 android:textStyle="bold"/>
             <EditText
+                android:id="@+id/login_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:drawableEnd="@drawable/password_icon"/>
+                android:drawableLeft="@drawable/lock"
+                android:drawableTint="@color/black"
+                android:drawablePadding="8dp"/>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -113,30 +120,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="10dp"/>
             <TextView
+                android:id="@+id/signup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Continue with"
+                android:text="Don't have an Account? Sign Up"
+                android:textSize="18sp"
+                android:textColor="@color/black"
                 android:layout_gravity="center"
                 android:alpha="0.7"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/facebook_icon"/>
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="12dp"
-                    android:background="@drawable/google_icon"/>
-            </LinearLayout>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>

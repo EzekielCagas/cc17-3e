@@ -13,10 +13,43 @@
         android:theme="@style/Theme.Dressire"
         tools:targetApi="31">
         <activity
-            android:name=".Highlight"
+            android:name=".DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".Hamburger"
+            android:name=".activity_detail"
+            android:exported="false" />
+        <activity
+            android:name=".AboutUs"
+            android:exported="false" />
+        <activity
+            android:name=".About"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".KColl"
+            android:exported="false" />
+        <activity
+            android:name=".Message"
+            android:exported="false" />
+        <activity
+            android:name=".Account"
+            android:exported="false" />
+        <activity
+            android:name=".MColl"
+            android:exported="false" />
+        <activity
+            android:name=".WColl"
+            android:exported="false" />
+        <activity
+            android:name=".BookMark"
+            android:exported="false" />
+        <activity
+            android:name=".Transaction"
+            android:exported="false" />
+        <activity
+            android:name=".Highlight"
             android:exported="false" />
         <activity
             android:name=".ProductView"
