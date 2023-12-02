@@ -1,21 +1,29 @@
 package com.example.dressire;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.Activity;
-import android.content.Intent;
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.util.Log;
+
+import com.example.dressire.Model.Womens;
+import com.example.dressire.adapter.WCollAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 public class WColl extends AppCompatActivity {
-    DrawerLayout drawerLayout;
-    ImageView menu;
-    LinearLayout home, men, women, kids, about;
+
+    RecyclerView recyclerView = findViewById(R.id.recyclerView);
+    WCollAdapter adapter = new WCollAdapter();
 
 
     @Override
@@ -23,71 +31,25 @@ public class WColl extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wcoll);
 
-        drawerLayout = findViewById(R.id.drawer_layout);
-        menu = findViewById(R.id.menu);
-        home = findViewById(R.id.home);
-        men = findViewById(R.id.men);
-        women = findViewById(R.id.women);
-        kids = findViewById(R.id.kids);
-        about = findViewById(R.id.about);
+        recyclerView.setAdapter(adapter);
 
-        menu.setOnClickListener(new View.OnClickListener() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference productsRef = database.getReference("Women Collection");
+
+        productsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                openDrawer(drawerLayout);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot wcollectionSnapshot : dataSnapshot.getChildren()){
+                    Womens women = wcollectionSnapshot.getValue(Womens.class);
+                }
             }
-        });
-        home.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
-                redirectActivity(WColl.this, HomeScreen.class);
-            }
-        });
-        men.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectActivity(WColl.this, MColl.class);
-            }
-        });
-        women.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recreate();
-            }
-        });
-        kids.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectActivity(WColl.this, KColl.class);
-            }
-        });
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectActivity(WColl.this, AboutUs.class);
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Failed to read value", error.toException());
             }
         });
 
-    }
-
-    public static void openDrawer(DrawerLayout drawerLayout){
-        drawerLayout.openDrawer(GravityCompat.START);
-    }
-    public static void closeDrawer(DrawerLayout drawerLayout){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-    }
-    public static void redirectActivity(Activity activity, Class secondActivity){
-        Intent intent = new Intent(activity, secondActivity);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(intent);
-        activity.finish();
-    }
-    @Override
-    protected void onPause(){
-        super.onPause();
-        closeDrawer(drawerLayout);
     }
 
 }

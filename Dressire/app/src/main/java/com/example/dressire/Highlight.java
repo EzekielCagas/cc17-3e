@@ -23,6 +23,8 @@ public class Highlight extends AppCompatActivity {
     private ImageButton WBtn;
     private ImageButton MBtn;
 
+    private ImageButton KBtn;
+
     //auto slide
     private Handler slideHandler = new Handler();
 
@@ -34,6 +36,7 @@ public class Highlight extends AppCompatActivity {
 
         WBtn = (ImageButton) findViewById(R.id.WBtn);
         MBtn = (ImageButton) findViewById(R.id.MBtn);
+        KBtn = (ImageButton) findViewById(R.id.KBtn);
 
 
         WBtn.setOnClickListener(new View.OnClickListener(){
@@ -48,6 +51,12 @@ public class Highlight extends AppCompatActivity {
             public void onClick(View v) {
 
                 openMColl();
+            }
+        });
+        KBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openKColl();
             }
         });
 
@@ -99,6 +108,10 @@ public class Highlight extends AppCompatActivity {
         }
         public void openMColl(){
             Intent intent = new Intent(this, MColl.class);
+            startActivity(intent);
+        }
+        public void openKColl(){
+            Intent intent = new Intent(this, KColl.class);
             startActivity(intent);
         }
 
