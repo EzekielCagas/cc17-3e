@@ -2,54 +2,82 @@ package com.example.dressire;
 
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.dressire.Model.Womens;
 import com.example.dressire.adapter.WCollAdapter;
+import com.example.dressire.adapter.WomensAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 
 public class WColl extends AppCompatActivity {
 
-    RecyclerView recyclerView = findViewById(R.id.recyclerView);
-    WCollAdapter adapter = new WCollAdapter();
-
+    RecyclerView recyclerView;
+    WomensAdapter adapter;
+    ArrayList<Womens> womensList = new ArrayList<>();
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wcoll);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.womens_card_view, container, false);
 
-        recyclerView.setAdapter(adapter);
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("Night Gowns");
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference productsRef = database.getReference("Women Collection");
-
-        productsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        ValueEventListener firebaseListener = new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot wcollectionSnapshot : dataSnapshot.getChildren()){
-                    Womens women = wcollectionSnapshot.getValue(Womens.class);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                womensList.clear();
+                for(DataSnapshot child : snapshot.getChildren()){
+                    Womens product = new Womens(
+                            child.child("img").getValue().toString(),
+                            child.child("name").getValue().toString(),
+                            child.child("price").getValue().toString()
+                    );
+
+                    womensList.add(product);
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "Failed to read value", error.toException());
-            }
-        });
 
+            }
+        };
+
+        reference.addValueEventListener(firebaseListener);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 4, GridLayoutManager.VERTICAL, false));
+
+        adapter = new WomensAdapter(womensList);
+        recyclerView.setAdapter(adapter);
+
+        return view;
     }
 
 }
