@@ -1,27 +1,13 @@
 package com.example.dressire;
 
-
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-import static androidx.core.content.ContentProviderCompat.requireContext;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.example.dressire.Model.Womens;
-import com.example.dressire.adapter.WCollAdapter;
-import com.example.dressire.adapter.WomensAdapter;
+import com.example.dressire.Model.Women;
+import com.example.dressire.adapter.WomenAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,55 +15,39 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class WColl extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    WomensAdapter adapter;
-    ArrayList<Womens> womensList = new ArrayList<>();
-    FirebaseDatabase database;
-    DatabaseReference reference;
+    DatabaseReference databaseReference;
+    DatabaseReference womenReference;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.womens_card_view, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_wcoll);
 
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("Night Gowns");
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        womenReference = databaseReference.child("Night Gowns");
 
-        ValueEventListener firebaseListener = new ValueEventListener() {
+        recyclerView = findViewById(R.id.recycler_view);
+        womenReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                womensList.clear();
-                for(DataSnapshot child : snapshot.getChildren()){
-                    Womens product = new Womens(
-                            child.child("img").getValue().toString(),
-                            child.child("name").getValue().toString(),
-                            child.child("price").getValue().toString()
-                    );
-
-                    womensList.add(product);
+                List<Women> womenList = new ArrayList<>();
+                for(DataSnapshot womenSnapshot : snapshot.getChildren()) {
+                    Women women = womenSnapshot.getValue(Women.class);
+                    women.setKey(womenSnapshot.getKey());
+                    womenList.add(women);
                 }
-                adapter.notifyDataSetChanged();
+                recyclerView.setAdapter(new WomenAdapter(WColl.this, womenList, womenReference));
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        };
-
-        reference.addValueEventListener(firebaseListener);
-
-        recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 4, GridLayoutManager.VERTICAL, false));
-
-        adapter = new WomensAdapter(womensList);
-        recyclerView.setAdapter(adapter);
-
-        return view;
+        });
     }
-
 }
