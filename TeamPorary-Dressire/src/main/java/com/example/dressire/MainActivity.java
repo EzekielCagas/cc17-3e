@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,46 +36,70 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         signup = findViewById(R.id.signup);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = Lemail.getText().toString();
-                String pass = Lpass.getText().toString();
+        findViewById(R.id.login).setOnClickListener(v -> loginUser());
+    }
 
-                if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    if (!pass.isEmpty()) {
-                        auth.signInWithEmailAndPassword(email, pass)
-                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(MainActivity.this, HomeScreen.class));
-                                        finish();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                    }else{
-                        Lpass.setError("Password cannot be empty");
+        private void loginUser(){
+
+        String email = Lemail.getText().toString().trim();
+        String password = Lpass.getText().toString().trim();
+
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = auth.getCurrentUser();
+                        if(user != null) {
+                            if (user.getEmail().equals("admin@email.com")){
+                                startActivity(new Intent(MainActivity.this, SellerH.class));
+                            }else{
+                                startActivity(new Intent(MainActivity.this, HomeScreen.class));
+                            }
+                            finish();
+                        }
+                    } else{
+                        Toast.makeText(MainActivity.this, "Login Failed. Check yout credentials.", Toast.LENGTH_SHORT).show();
                     }
-                } else if (email.isEmpty()){
-                    Lemail.setError("Email cannot be empty");
-                } else {
-                    Lemail.setError("Enter valid email address");
+                });
+
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String email = Lemail.getText().toString();
+                    String pass = Lpass.getText().toString();
+
+                    if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                        if (!pass.isEmpty()) {
+                            auth.signInWithEmailAndPassword(email, pass)
+                                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                        @Override
+                                        public void onSuccess(AuthResult authResult) {
+                                            Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(MainActivity.this, HomeScreen.class));
+                                            finish();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }else{
+                            Lpass.setError("Password cannot be empty");
+                        }
+                    } else if (email.isEmpty()){
+                        Lemail.setError("Email cannot be empty");
+                    } else {
+                        Lemail.setError("Enter valid email address");
+                    }
                 }
-            }
-        });
+            });
 
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SignUp.class));
-            }
-        });
-
+            signup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(MainActivity.this, SignUp.class));
+                }
+            });
     }
 
 }

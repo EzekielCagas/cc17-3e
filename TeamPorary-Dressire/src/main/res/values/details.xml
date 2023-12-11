@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="navy">3 Days Gown Rental
+        1st day Pick up
+        2nd day Use
+        3rd day Return
+        50% DP for reservation
+        Free minimal/repair
+        Security Deposit of 300 pesos and 1 valid ID
+        NON CANCELLATION and NON REFUNDABLE POLICY
+    </string>
+
+    <string name="purple">3 Days Gown Rental
+        1st day Pick up
+        2nd day Use
+        3rd day Return
+        50% DP for reservation
+        Free minimal/repair
+        Security Deposit of 300 pesos and 1 valid ID
+        NON CANCELLATION and NON REFUNDABLE POLICY
+    </string>
+
+    <string name="blue">3 Days Gown Rental
+        1st day Pick up
+        2nd day Use
+        3rd day Return
+        50% DP for reservation
+        Free minimal/repair
+        Security Deposit of 300 pesos and 1 valid ID
+        NON CANCELLATION and NON REFUNDABLE POLICY
+    </string>
+
+</resources>

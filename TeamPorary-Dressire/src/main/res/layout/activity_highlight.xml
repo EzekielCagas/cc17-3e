@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/highlight"
     tools:context=".Highlight"
     android:orientation="vertical">
 
@@ -41,7 +42,7 @@
                 android:layout_height="200dp"
                 tools:ignore="MissingConstraints"
                 android:layout_margin="9dp"
-                android:layout_below="@+id/header"/>
+                android:layout_below="@+id/title"/>
 
             <LinearLayout
                 android:id="@+id/Container"
@@ -81,12 +82,16 @@
                         android:layout_marginRight="10dp"/>
 
                 </LinearLayout><!--Women Collection Header-->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true">
                 <LinearLayout
                     android:id="@+id/wColl_dress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@+id/Container2">
+                    android:layout_below="@+id/womens">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/w1"
@@ -139,6 +144,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1" />
                                     <ImageButton
+                                        android:id="@+id/bookmarkw1"
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:background="@drawable/bookmark"/>
@@ -204,6 +210,7 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1" />
                                     <ImageButton
+                                        android:id="@+id/bookmarkw2"
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:background="@drawable/bookmark"/>
@@ -267,6 +274,135 @@
                                         android:layout_height="0dp"
                                         android:layout_weight="1" />
                                     <ImageButton
+                                        android:id="@+id/bookmarkw3"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:background="@drawable/bookmark"/>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/w4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#D9D9D9"
+                        app:cardElevation="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_below="@+id/wColl_dress"
+                        android:layout_toEndOf="@+id/w2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/wColl4"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/dark_blue"
+                                android:adjustViewBounds="true"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+
+                                <TextView
+                                    android:id="@+id/w4_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Dark Blue Gown"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/black"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="₱1600"
+                                        android:textColor="@color/black"
+                                        android:layout_marginLeft="8dp"/>
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1" />
+                                    <ImageButton
+                                        android:id="@+id/bookmarkw4"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:background="@drawable/bookmark"/>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/w5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#D9D9D9"
+                        app:cardElevation="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_below="@+id/wColl_dress"
+                        android:layout_toEndOf="@+id/w2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/wColl5"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/flower_prom"
+                                android:adjustViewBounds="true"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+
+                                <TextView
+                                    android:id="@+id/w5_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Vintage Tulle Gown"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/black"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="₱1600"
+                                        android:textColor="@color/black"
+                                        android:layout_marginLeft="8dp"/>
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1" />
+                                    <ImageButton
+                                        android:id="@+id/bookmarkw5"
                                         android:layout_width="25dp"
                                         android:layout_height="25dp"
                                         android:background="@drawable/bookmark"/>
@@ -281,6 +417,8 @@
                     </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout><!--Dress Container-->
+            </HorizontalScrollView><!--Dresses-->
+
                 <LinearLayout
                     android:id="@+id/mens"
                     android:layout_width="match_parent"
@@ -313,6 +451,10 @@
                         android:layout_marginRight="8dp"/>
 
                 </LinearLayout><!--Men Collection Header-->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true">
                 <LinearLayout
                     android:id="@+id/mColl_suits"
                     android:layout_width="match_parent"
@@ -513,8 +655,140 @@
 
 
                     </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/m4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#D9D9D9"
+                        app:cardElevation="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_below="@+id/mColl_suits"
+                        android:layout_toEndOf="@+id/m2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/mColl4"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/blaze2"
+                                android:adjustViewBounds="true"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+
+                                <TextView
+                                    android:id="@+id/m4_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Blue Blazer"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/black"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="₱1600"
+                                        android:textColor="@color/black"
+                                        android:layout_marginLeft="8dp"/>
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1" />
+                                    <ImageButton
+                                        android:id="@+id/bookmarkm4"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:background="@drawable/bookmark"/>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/m5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#D9D9D9"
+                        app:cardElevation="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_below="@+id/mColl_suits"
+                        android:layout_toEndOf="@+id/m2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/mColl5"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/blaze1"
+                                android:adjustViewBounds="true"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+
+                                <TextView
+                                    android:id="@+id/m5_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="BLue Blazer Coat"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/black"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="₱1600"
+                                        android:textColor="@color/black"
+                                        android:layout_marginLeft="8dp"/>
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1" />
+                                    <ImageButton
+                                        android:id="@+id/bookmarkm5"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:background="@drawable/bookmark"/>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout><!--Suits-->
+            </HorizontalScrollView><!--Suits-->
+
                 <LinearLayout
                     android:id="@+id/kids"
                     android:layout_width="match_parent"
@@ -542,6 +816,10 @@
                         android:background="@drawable/more"
                         android:layout_marginRight="8dp"/>
                 </LinearLayout><!--Kid Collection Header-->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true">
                 <LinearLayout
                     android:id="@+id/kColl_attire"
                     android:layout_width="match_parent"
@@ -696,7 +974,7 @@
                                     android:id="@+id/k3_title"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Pink Party Dress"
+                                    android:text="White Jumper"
                                     android:layout_gravity="center"
                                     android:textColor="@color/black"/>
                                 <LinearLayout
@@ -722,8 +1000,125 @@
                             </LinearLayout>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/k4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#D9D9D9"
+                        app:cardElevation="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_below="@+id/kColl_attire"
+                        android:layout_toEndOf="@+id/k1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/kColl4"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/kids7"
+                                android:adjustViewBounds="false"
+                                android:scaleType="centerCrop"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+                                <TextView
+                                    android:id="@+id/k4_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Red Party Dress"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/black"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="₱1300"
+                                        android:textColor="@color/black"
+                                        android:layout_marginLeft="8dp"/>
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1"/>
+                                    <ImageButton
+                                        android:id="@+id/bookmarkk4"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:background="@drawable/bookmark"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/k5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#D9D9D9"
+                        app:cardElevation="3dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_below="@+id/kColl_attire"
+                        android:layout_toEndOf="@+id/k1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/kColl5"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/kid_tux"
+                                android:adjustViewBounds="true"
+                                android:scaleType="centerCrop"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="center">
+                                <TextView
+                                    android:id="@+id/k5_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="White Tuxedo"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/black"/>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="₱1300"
+                                        android:textColor="@color/black"
+                                        android:layout_marginLeft="8dp"/>
+                                    <View
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1"/>
+                                    <ImageButton
+                                        android:id="@+id/bookmarkk5"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:background="@drawable/bookmark"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout><!--Attire-->
+            </HorizontalScrollView>
 
 
 

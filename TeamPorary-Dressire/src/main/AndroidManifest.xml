@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +15,33 @@
         android:theme="@style/Theme.Dressire"
         tools:targetApi="31">
         <activity
+            android:name=".Upload"
+            android:exported="false" />
+        <activity
+            android:name=".Reviews"
+            android:exported="false" />
+        <activity
+            android:name=".Reservation"
+            android:exported="false" />
+        <activity
+            android:name=".Inventory"
+            android:exported="false" />
+        <activity
+            android:name=".Account"
+            android:exported="false" />
+        <activity
+            android:name=".About"
+            android:exported="false" />
+        <activity
+            android:name=".SellerH"
+            android:exported="false" />
+        <activity
+            android:name=".Details"
+            android:exported="false" />
+        <activity
+            android:name=".WColl"
+            android:exported="false" />
+        <activity
             android:name=".DetailActivity"
             android:exported="false" />
         <activity
@@ -20,9 +49,6 @@
             android:exported="false" />
         <activity
             android:name=".AboutUs"
-            android:exported="false" />
-        <activity
-            android:name=".About"
             android:exported="false" />
         <activity
             android:name=".SignUp"
@@ -34,13 +60,7 @@
             android:name=".Message"
             android:exported="false" />
         <activity
-            android:name=".Account"
-            android:exported="false" />
-        <activity
             android:name=".MColl"
-            android:exported="false" />
-        <activity
-            android:name=".WColl"
             android:exported="false" />
         <activity
             android:name=".BookMark"

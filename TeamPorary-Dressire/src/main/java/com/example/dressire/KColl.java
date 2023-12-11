@@ -15,7 +15,7 @@ public class KColl extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ImageView menu;
-    LinearLayout home, men, women, kids, about;
+    LinearLayout home, men, women, kids, logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,14 @@ public class KColl extends AppCompatActivity {
         men = findViewById(R.id.men);
         women = findViewById(R.id.women);
         kids = findViewById(R.id.kids);
-        about = findViewById(R.id.about);
+        logout = findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,13 +67,12 @@ public class KColl extends AppCompatActivity {
                 recreate();
             }
         });
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectActivity(KColl.this, AboutUs.class);
-            }
-        });
 
+    }
+
+    public void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public static void openDrawer(DrawerLayout drawerLayout){

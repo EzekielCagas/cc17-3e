@@ -6,41 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".Account">
 
-    <LinearLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
+            <include layout="@layout/sellerd"/>
 
-        <ImageButton
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back"
-            android:layout_centerVertical="true"
-            android:padding="15dp"
-            android:layout_marginLeft="15dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Account"
+                android:textSize="40sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="105dp"
-            android:fontFamily="@font/frank"
-            android:padding="10dp"
-            android:text="Account"
-            android:textSize="40sp" />
+        </LinearLayout>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_gravity="start">
 
+            <include
+                layout="@layout/nav_task"/>
 
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_gravity="end">
 
+            <include
+                layout="@layout/nav_seller"/>
+        </RelativeLayout>
 
-    </LinearLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </RelativeLayout>

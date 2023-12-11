@@ -29,3 +29,9 @@
 ## 11/29/23
 -updated layout and added database but facing problems
 
+## 12/09/23
+-finished 45% percent of the app added upload and retrieve features 
+
+## 12/11/23
+-Created the apk format of the app/prototype
+

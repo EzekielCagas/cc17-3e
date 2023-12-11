@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 public class MColl extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ImageView menu;
-    LinearLayout home, men, women, kids, about;
+    LinearLayout home, men, women, kids, logout;
 
 
     @Override
@@ -29,7 +29,14 @@ public class MColl extends AppCompatActivity {
         men = findViewById(R.id.men);
         women = findViewById(R.id.women);
         kids = findViewById(R.id.kids);
-        about = findViewById(R.id.about);
+        logout = findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +68,12 @@ public class MColl extends AppCompatActivity {
                 redirectActivity(MColl.this, KColl.class);
             }
         });
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectActivity(MColl.this, AboutUs.class);
-            }
-        });
 
+    }
+
+    public void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     public static void openDrawer(DrawerLayout drawerLayout){

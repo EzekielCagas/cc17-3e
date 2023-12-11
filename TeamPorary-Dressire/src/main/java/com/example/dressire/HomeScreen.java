@@ -1,7 +1,9 @@
 package com.example.dressire;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.arch.core.executor.ArchTaskExecutor;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -17,11 +19,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class HomeScreen extends AppCompatActivity {
     private Button browse;
     DrawerLayout drawerLayout;
     ImageView menu;
-    LinearLayout home, men, women, kids, about;
+    LinearLayout home, men, women, kids, logout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +41,15 @@ public class HomeScreen extends AppCompatActivity {
         men = findViewById(R.id.men);
         women = findViewById(R.id.women);
         kids = findViewById(R.id.kids);
-        about = findViewById(R.id.about);
+        logout = findViewById(R.id.logout);
 
-
-
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
+        
         browse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,16 +87,15 @@ public class HomeScreen extends AppCompatActivity {
                 redirectActivity(HomeScreen.this, KColl.class);
             }
         });
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectActivity(HomeScreen.this, AboutUs.class);
-            }
-        });
 
     }
 
-        public void openHighlight() {
+    public void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void openHighlight() {
             Intent intent = new Intent(this, Highlight.class);
             startActivity(intent);
         }
@@ -93,6 +103,7 @@ public class HomeScreen extends AppCompatActivity {
     public static void openDrawer(DrawerLayout drawerLayout){
         drawerLayout.openDrawer(GravityCompat.START);
     }
+
     public static void closeDrawer(DrawerLayout drawerLayout){
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);

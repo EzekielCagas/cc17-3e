@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Upload">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/uploadImage"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/add_photo"
+            android:layout_marginTop="10dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/productName"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/textbox"
+                android:padding="10dp"
+                android:hint="Product Name"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Attributes"
+                android:textSize="25dp"
+                android:fontFamily="@font/frank"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/material"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/textbox"
+                android:padding="10dp"
+                android:hint="Product Material"/>
+            <EditText
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/textbox"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:hint="Dress Type"/>
+            <EditText
+                android:id="@+id/color"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="0.6"
+                android:background="@drawable/textbox"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:hint="Color family"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginBottom="51dp"
+        android:src="@drawable/add" />
+
+</RelativeLayout>

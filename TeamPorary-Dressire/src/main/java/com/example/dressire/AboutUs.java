@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
@@ -14,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +21,6 @@ public class AboutUs extends AppCompatActivity {
 
     RecyclerView recyclerView;
     List<DataClass> dataList;
-    Adapter adapter;
     DataClass androidData;
 
     DrawerLayout drawerLayout;
@@ -85,19 +84,6 @@ public class AboutUs extends AppCompatActivity {
         recyclerView.setLayoutManager(gridLayoutManager);
         dataList = new ArrayList<>();
 
-        androidData = new DataClass("One Step Solution", R.string.one_step_solution);
-        dataList.add(androidData);
-        androidData = new DataClass("Why Rental?", R.string.why_rental);
-        dataList.add(androidData);
-        androidData = new DataClass("Quick Turnaround Time", R.string.quick_turnaround_time);
-        dataList.add(androidData);
-        androidData = new DataClass("Product Quality Control", R.string.product_quality_control);
-        dataList.add(androidData);
-        androidData = new DataClass("Our Team", R.string.our_team);
-        dataList.add(androidData);
-
-        adapter = new Adapter(AboutUs.this, dataList);
-        recyclerView.setAdapter(adapter);
     }
 
 

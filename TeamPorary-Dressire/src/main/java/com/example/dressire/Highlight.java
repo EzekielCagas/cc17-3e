@@ -2,6 +2,9 @@ package com.example.dressire;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
@@ -13,16 +16,17 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+
+import com.google.firebase.FirebaseApp;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Highlight extends AppCompatActivity {
 
+    ImageButton WBtn, MBtn, KBtn;
     ViewPager2 viewpager2;
-    private ImageButton WBtn;
-    private ImageButton MBtn;
-
     //auto slide
     private Handler slideHandler = new Handler();
 
@@ -32,22 +36,26 @@ public class Highlight extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highlight);
 
-        WBtn = (ImageButton) findViewById(R.id.WBtn);
-        MBtn = (ImageButton) findViewById(R.id.MBtn);
+        WBtn = findViewById(R.id.WBtn);
+        MBtn = findViewById(R.id.MBtn);
+        KBtn = findViewById(R.id.KBtn);
 
-
-        WBtn.setOnClickListener(new View.OnClickListener(){
+        WBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-
+            public void onClick(View v) {
                 openWColl();
             }
         });
         MBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 openMColl();
+            }
+        });
+        KBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openKColl();
             }
         });
 
@@ -101,6 +109,11 @@ public class Highlight extends AppCompatActivity {
             Intent intent = new Intent(this, MColl.class);
             startActivity(intent);
         }
+        public void openKColl(){
+            Intent intent = new Intent(this, KColl.class);
+            startActivity(intent);
+        }
+
 
         //Image slieshow
     private Runnable sliderRunnable = new Runnable() {
